@@ -36,10 +36,7 @@ pp spiciest_foods(spicy_foods)
 def print_spicy_foods(spicy_foods)
   # your code here
   spicy_foods.each do |food|
-    name = food[:name]
-    cuisine = (food[:cuisine])
-    heat = "🌶" * food[:heat_level]
-    name + cuisine + " | Heat Level :" + heat
+    "#{food[:name]} (#{food[:cuisine]}) | Heat Level : #{"🌶" * food[:heat_level]}"
   end
 end
 puts print_spicy_foods(spicy_foods)
@@ -73,9 +70,10 @@ puts sort_by_heat(spicy_foods)
 # HINT: Try to use methods you've already written to solve this!
 def print_spiciest_foods(spicy_foods)
   # your code here
-  spicy_foods.each do |food|
-    food_heat = "🌶" * food[:heat_level]
-    food[:name] + ":" + food_heat 
+  spicy_foods.filter do |food|
+        if food[:heat_level] > 5 
+          "#{food[:name]} (#{food[:cuisine]}) | Heat Level: #{"🌶" * food[:heat_level]}"
+        end
   end
 end
 
